@@ -3,7 +3,7 @@ from enum import Enum
 
 class ShareRole(str, Enum):
     READ = "read"
-    WRITE = "write"
+    EDIT = "edit"
 
 class NoteShare(SQLModel, table=True):
     __tablename__ = "note_share"
@@ -22,3 +22,7 @@ class LabelShare(SQLModel, table=True):
     label_id : int = Field(foreign_key="label.id", index=True)
     user_id : int = Field(foreign_key="user.id", index=True)
     role : ShareRole = Field(default=ShareRole.READ)
+
+class ShareRequest(SQLModel):
+    target_user_id : int = Field(gt=0)
+    role : ShareRole = ShareRole.READ

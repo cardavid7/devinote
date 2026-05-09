@@ -74,4 +74,4 @@ class ShareRepository:
         return [row[0] if isinstance(row, tuple) else row for row in rows]
 
     def list_label_ids_shared_with_user(self, user_id: int) -> list[int]:
-        return self.db.exec(select(LabelShare.label_id).where(LabelShare.user_id == user_id)).scalars().all()
+        return self.db.exec(select(LabelShare.label_id).where(LabelShare.user_id == user_id)).all()

@@ -31,12 +31,12 @@ class LabelRepository:
     def list_id_for_owner_subset(self, owner_id: int, label_ids: list[int]) -> list[int]:
         if not label_ids:
             return []
-        return self.db.exec(select(Label.id).where(Label.owner_id == owner_id, Label.id.in_(set(label_ids)))).scalars().all()
+        return self.db.exec(select(Label.id).where(Label.owner_id == owner_id, Label.id.in_(set(label_ids)))).all()
 
     def list_label_ids_for_note(self, note_id: int) -> list[int]:
-        return self.db.exec(select(NoteLabelLink.label_id).where(NoteLabelLink.note_id == note_id)).scalars().all()
+        return self.db.exec(select(NoteLabelLink.label_id).where(NoteLabelLink.note_id == note_id)).all()
 
     def list_note_ids_by_label_ids(self, label_ids: list[int]) -> list[int]:
         if not label_ids:
             return []
-        return self.db.exec(select(NoteLabelLink.note_id).where(NoteLabelLink.label_id.in_(set(label_ids)))).scalars().all()
+        return self.db.exec(select(NoteLabelLink.note_id).where(NoteLabelLink.label_id.in_(set(label_ids)))).all()

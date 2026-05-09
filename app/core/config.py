@@ -6,7 +6,7 @@ class Settings(BaseSettings):
     JWT_SECRET_KEY: str = Field(..., env="JWT_SECRET_KEY")
     JWT_ALGORITHM: str = Field(default="HS256", env="JWT_ALGORITHM")
     JWT_ACCESS_TOKEN_EXPIRE_MINUTES: int = Field(default=60*24, env="JWT_ACCESS_TOKEN_EXPIRE_MINUTES")
-    PROJECT_NAME: str = Field(default="Devinote", env="PROJECT_NAME")
+    APP_NAME: str = Field(default="Devinote", env="APP_NAME")
 
     class Config:
         env_file = ".env"
