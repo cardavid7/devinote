@@ -5,6 +5,7 @@ class User(SQLModel, table=True):
     email : str = Field(index=True, unique=True, nullable=False)
     full_name : str = Field(default="")
     hashed_password: str = Field(nullable=False)
+    active: bool = Field(default=True)
 
 class UserCreate(SQLModel):
     email : str
