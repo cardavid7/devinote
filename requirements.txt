@@ -43,3 +43,5 @@ websockets==16.0
 sqlmodel==0.0.38
 pwdlib[argon2]
 PyJWT
+alembic==1.18.4
+psycopg[binary]==3.3.4
