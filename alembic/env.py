@@ -1,6 +1,5 @@
 from logging.config import fileConfig
 
-from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
@@ -10,10 +9,6 @@ import os
 
 from sqlmodel import SQLModel
 from sqlalchemy import create_engine
-from app.models.note import Note
-from app.models.user import User
-from app.models.label import Label, NoteLabelLink
-from app.models.share import NoteShare, LabelShare
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
