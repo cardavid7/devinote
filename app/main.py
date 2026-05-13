@@ -17,8 +17,11 @@ async def lifespan(app: FastAPI):
     load_dotenv()
 
     #Database connection
-    init_db()
-    print("Connecting to database...")
+    if settings.ENVIRONMENT == "DEV":
+        init_db()
+        print("Connecting to database...")
+    else:
+        print("Database connection will be handled by Alembic...")
     
     #Run background tasks
     print("Running background tasks...")

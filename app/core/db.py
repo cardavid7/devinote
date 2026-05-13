@@ -9,7 +9,8 @@ engine = create_engine(settings.DATABASE_URL, echo=True, connect_args=connect_ar
 
 def init_db() -> None:
     """ For develop mode, create all tables at once"""
-    SQLModel.metadata.create_all(engine)
+    if settings.ENVIRONMENT == "DEV":
+        SQLModel.metadata.create_all(engine)
 
 def get_session() -> Iterator[Session]:
     """ Generator that yields database session """
