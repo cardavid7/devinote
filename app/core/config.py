@@ -8,6 +8,7 @@ class Settings(BaseSettings):
     JWT_ACCESS_TOKEN_EXPIRE_MINUTES: int = Field(default=60*24, env="JWT_ACCESS_TOKEN_EXPIRE_MINUTES")
     APP_NAME: str = Field(default="Devinote", env="APP_NAME")
     ENVIRONMENT: str = Field(default="DEV", env="ENVIRONMENT")
+    ALLOWED_ORIGINS: str = Field(default="*", env="ALLOWED_ORIGINS")
 
     class Config:
         env_file = ".env"

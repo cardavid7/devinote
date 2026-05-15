@@ -4,4 +4,10 @@
 venv
 
 # python cache
-__pycache__ 
+__pycache__
+
+# SQLite local (no subir al repo)
+*.db
+
+# Alembic cache
+alembic/__pycache__
